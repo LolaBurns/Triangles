@@ -1,6 +1,3 @@
-// Back End Logic
-
-
 // Front End Logic
 $(document).ready(function() {
   $("form#triangleform").submit(function() {
@@ -10,13 +7,15 @@ $(document).ready(function() {
     var side3Input = parseInt($("#side3").val());
     var result;
 
-    if (side1Input === side2Input && side2Input === side3Input) {
+    if (( side1Input + side2Input <= side3Input) || (side1Input + side3Input <= side2Input) || (side2Input + side3Input <= side1Input)) {
+        result = ("Not a Triangle!")
+    } else if ((side1Input === side2Input) && (side2Input === side3Input) && (side3Input === side1Input)) {
       result = ("Equilateral")
-    } else if (side1Input === side2Input || side1Input === side3Input || side2Input === side3Input) {
+    } else if ((side1Input === side2Input) || (side1Input === side3Input) || (side2Input === side3Input)) {
       result = ("Isosceles")
-    } else if (side1Input != side2Input || side1Input != side3Input || side2Input != side3Input) {
+    } else if ((side1Input !== side2Input) && (side1Input !== side3Input) || (side2Input !== side3Input)) {
       result = ("Scalene")
-    } else if
+    }
 
     $("#answer").text(result);
 
